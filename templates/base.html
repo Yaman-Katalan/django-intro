@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Name</title>
+    <!-- Start Linking -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- End Linking -->
+    <!-- Start Styling -->
+    <style>
+      :root {
+        --colorOne: #52325d;
+        --colorTwo: #e4e932;
+        --colorThree: white;
+      }
+
+      body {
+        margin: 0;
+        background-color: #caccd1;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      /* Start Header */
+      nav.header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        background-color: var(--colorOne);
+      }
+
+      nav.header a {
+        color: var(--colorThree);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+        padding: 10px 20px;
+        position: relative;
+      }
+
+      nav.header a::before {
+        content: "";
+        position: absolute;
+        transition: 0.3s;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 2px;
+        background-color: var(--colorTwo);
+        bottom: 0;
+        width: 0;
+      }
+
+      nav.header a:hover::before {
+        width: 30%;
+      }
+      /* End Header */
+
+      /* Start Main */
+      main {
+        height: calc(100% - 149.5px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /* End Main */
+
+      /* Start Footer */
+      footer.footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 50px;
+        padding: 15px;
+        background-color: var(--colorOne);
+      }
+
+      footer.footer a {
+        font-size: 30px;
+        color: var(--colorThree);
+        position: relative;
+        padding: 10px 0;
+      }
+
+      footer.footer a::before {
+        content: "";
+        position: absolute;
+        transition: 0.3s;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 2px;
+        background-color: var(--colorTwo);
+        bottom: 0;
+        width: 0;
+      }
+
+      footer.footer a:hover::before {
+        width: 100%;
+      }
+
+      /* End Footer */
+    </style>
+    <!-- End Styling -->
+  </head>
+  <body>
+    <header>
+      <nav class="header">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'services' %}">Our Services</a>
+        <a href="{% url 'about' %}">About</a>
+      </nav>
+    </header>
+
+    <main>{% block content %} {% endblock content %}</main>
+
+    <footer class="footer">
+      <a href="#">
+        <i class="fa-brands fa-facebook-messenger"></i>
+      </a>
+      <a href="#">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="#">
+        <i class="fa-brands fa-x-twitter"></i>
+      </a>
+    </footer>
+  </body>
+</html>
